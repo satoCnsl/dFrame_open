@@ -1,0 +1,42 @@
+
+
+
+
+  <form action='/dframe/auth/login'  method="post">
+    <style>
+      
+      .campus{
+        width:    260px;
+        height:   130px;
+        
+      }
+    </style>
+    
+    <center>
+      
+    {% block header %}
+    <h1>{% block title %}Log In{% endblock %}</h1>
+    {% endblock %}
+    
+    <p class="campus" title="">
+      <p> <label for="username">Username</label>
+          <input name="username" id="username" required>
+      </p>
+      <p> <label for="password">Password</label>
+          <input type="password" name="password" id="password" required>
+      </p>
+      <p> <label for="appNm">Application</label>   
+          <select name=appSelNm style=width:150px;""></selectname>
+            {% for i in range(listAppNm|length) %}   
+              <option value= {{listAppNm[i]['name']}} >
+                  {{listAppNm[i]['title']}}
+              </option>
+            {% endfor%}
+          </select>
+      </p>
+    
+    <input type="submit" value="Log In">
+    </p>
+    
+  </form>
+

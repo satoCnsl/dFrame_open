@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+  <!-- <script src="script.js" defer></script> -->
+
+    <script  language="javascript" type="text/javascript" >
+      window.addEventListener('load', function(){
+          for (var i = 0; i < targetElements.length; i++) {
+              targetElements[i].addEventListener("mouseover", showText);
+              targetElements[i].addEventListener("mouseout", hideText);
+          }
+      });
+        function openWindow(url, name) {
+            window.open(url, name, 'width=campusSize["width"],height=campusSize["height"]');
+          }      
+    
+        function showText(event) {
+          var textElement = document.getElementById("text");
+          textElement.textContent = event.target.dataset.text;
+          textElement.style.display = "block";
+        }
+
+        function hideText() {
+          var textElement = document.getElementById("text");
+          textElement.style.display = "none";
+        }
+
+        var targetElements = document.getElementsByClassName("target");
+
+    </script>
+
+  <title>{% block title %}{% endblock %}</title>
+  {% if formPrpty[0]['runningMode'] == 2 %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleSmode.css') }}">
+  {% else %}  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% endif %}
+
+  <nav>
+    <h1> {{appName}}</h1>
+    <ul>  
+      <li> <a href= "{{ url_for('navi.application') }}">{{formCaption[0]}} </a>   </li>
+      <li> <a href= "{{ url_for('navi.setting') }}" >{{formCaption[1]}}</a>   </li>
+      {% if g.user %}
+        <li><span>{{ g.user['name'] }}</span>
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      {% else %}
+        <li><a href="{{ url_for('auth.login') }}">Please Log In</a>
+      {% endif %}
+    </ul>   
+  </nav>
+</head>
+
+<body>
+  <style type="text/css">
+    body {margin: 18; line-height: 20px; font-size: 80%;}
+    .colleft{float:left; height:10px; width: 15%; }
+    .colright{float:right; height: 10px; width: 85%; }
+    
+    .button {
+      display: inline-block;
+      border-style: solid;
+      border-radius:3px;
+      border-width: thin;
+      border-color: black;
+      padding: 2px 8px;
+      font-size: 14px;
+      color: black;
+      background-color: rgb(233, 232, 232);
+      border-width: thin;
+      border-color: black;
+      text-decoration: none;
+    }    
+    .menu-wrap{
+      border: 1px solid #999;
+      width: 960px;
+      padding: 0px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    .overflow-x{        
+      white-space:nowrap
+    }
+  </style>
+  
+  {% if formPrpty[0]['runningMode'] >= 0 %}
+    <div class="menu-wrap">
+      <div class="over-flow-x"
+        <table style="width: 100%; min-width:600px; border-collapse:collapse;    
+          /* position: fixed; */
+          top: 40px;
+          left: 100px;
+          width: 3000px;
+          white-space:nowrap;
+        >
+          <th scope="row"></th>
+          <tr>
+            {% for m in menu_bar %}
+              <td>
+                &emsp;                                       
+                <a href= "/dframe/navi/form/{{m['id']}}/0/0/{{formPrpty[0]['runningMode']}}/{{m['viewID']}}/0/ " >   
+                {{m['title']}}
+                </a> 
+              </td>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <form  method="POST">
+      {% block content %}
+        {{ content }}
+      {% endblock %} 
+
+      {% for pb in range(pageButton|length) %}  
+        {% if pageBtnOnOff[pb] == 'disabled' %}
+          <button type="submit" disabled
+            formaction="">
+            {{pageBtnCap[pb]}}
+          </button>  
+        {% else %}
+          <button type="submit" formaction="/{{urlPath}}?offset= {{pageOffset[pb]}}">
+            {{pageBtnCap[pb]}}
+          </button>
+        {% endif %}
+      {% endfor %}
+      
+      &emsp;
+      <p style="margin-bottom:10px; " align="center"/p>
+      {% for b in range(formButton|length) %}        
+          <button type="submit" id='btn_bc'
+            formaction="/dframe/{{formType}}/btn/{{formButton[b]['actionType']}}/">
+            {{formButton[b]['caption']}}
+          </button>        
+      {% endfor %}
+
+  </div>
+</body>
+{% block extra_js %}{% endblock %}
+</html>

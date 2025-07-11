@@ -1,0 +1,15 @@
+<form method="POST">
+    <!-- CSRF対策(トークンが生成される) -->
+    
+    <table id="field" width="100%">
+
+    {% for field in form %}
+    {% if field.data != 'voidXX'%}
+        <tr>
+            <th>{{ field.label }}</th>
+            <td>{{ field }}</td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+</form>

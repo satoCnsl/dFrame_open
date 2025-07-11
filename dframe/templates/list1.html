@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}dFrame{% endblock title %}
+
+{% block content %}
+  <h4 class="mt-4 border-bottom">
+     【 {{formCaptionL1[0]}} {{formPrpty[0]['title']}} {{formPrpty[0]['childObjName']}} 】    
+	
+      <p>        
+        ビュー：
+        <select name=viewSelID style=width:150px;"">
+          {% for i in range(listViewName|length) %}  
+            {% if listViewName[i]['id'] == view_id %}         
+              <option value= {{listViewName[i]['id']}} selected >
+                  {{listViewName[i]['name']}}
+              </option>
+            {% else %}         
+                <option value= {{listViewName[i]['id']}} >
+                    {{listViewName[i]['name']}}
+                </option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        <button type="submit" formaction="/dframe/navi/form/{{formPrpty[0]['id']}}/0/0/{{runningMode[2]}}/0/0/">
+          Go!
+        </button>
+        {% if formPrpty[0]['runningType']==0 or  formPrpty[0]['runningType']==2 and formPrpty[0]['id'] > 2 %}
+          　
+          <button type="submit" formaction="/dframe/view/open/E/">
+            {{formCaptionL1[1]}}
+          </button>
+          <button type="submit" formaction="/dframe/view/open/A/">
+            {{formCaptionL1[2]}}
+          </button>
+        {% endif %}
+      </p>
+    
+  </h4>
+  {% if formData|length == 0 %}
+    <center>  NO DATA EXISTS. </center><BR>
+  {% else %}
+    <table frame="vold" border="1" >
+      <thead>
+        <tr>
+          {% for  i in range( formColumns|length) %}
+            {% if formColumns[i]['isVisible'] == 1 or fk_link|length > 0 and formColumns[i]['name'] == 'id' 
+              and (fk_link[i]['id']['objectID']!='0' or formPrpty[0]['name'] == 'Object' )%}
+              <th scope="row" height="20">
+                {{formColumns[i]['title']}}
+              </th> 
+            {% endif %}
+          {% endfor %} 
+        </tr>
+      </thead>
+      <tbody >
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li {{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+        {% for  i in range( formData|length) %}
+          <tr>
+            {% for  c in formColumns %}
+              {% if c['isVisible'] == 1 %}
+                {% if c['name'] !='id' or c['name']=='id' and (fk_link[i]['id']['objectID'] !='0' or formPrpty[0]['name'] == 'Object')  %}
+                  <td scope="row" style="padding-left: 10px;padding-right: 10px;">                
+                    {% if fk_link[i][c['name']]['objectID'] != '0' and fk_link[i][c['name']]['entityID'] != Null %} 
+                      <!-- link to other object -->
+                      <a href= "/dframe/navi/form/{{fk_link[i][c['name']]['objectID']}}/{{fk_link[i][c['name']]['entityID']}}/{{fk_link[i][c['name']]['masterObjID']}}/{{fk_link[i][c['name']]['runningModeID']}}/{{fk_link[i][c['name']]['viewID']}}/{{fk_link[i][c['name']]['offset']}}/ " > 
+                        {% if c['name'] == 'id' %} 
+                        {{fk_link[i][c['name']]['caption']}}
+                        {% else %}
+                          {{formData[i][c['name']]}}
+                        {% endif %}
+                      </a> 
+                    
+                    {% else %}
+                      <!-- ordinary field -->
+                      {% if c['name'] != 'id' and c['isVisible'] == 1 %}
+                        {{formData[i][c['name']]}}
+                      {% else %}
+                      <!-- do not support 'detail' link for system object setting (running environment : object, account, baseValue, ) -->
+                        &emsp;
+                      {% endif %}
+                    {% endif %}            
+                  </td>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif%}
+  
+{% endblock content %}
+

@@ -1,0 +1,11 @@
+use dframe_testbed;
+DELETE FROM __object where id             >= 100;
+DELETE FROM __list_view where id          >= 100;
+ALTER TABLE __object           AUTO_INCREMENT =  100;
+ALTER TABLE __object_field     AUTO_INCREMENT = 1000;
+ALTER TABLE __object_field_rw  AUTO_INCREMENT = 1000;
+ALTER TABLE __list_view        AUTO_INCREMENT = 100;
+ALTER TABLE __list_view_filter AUTO_INCREMENT = 1000;
+ALTER TABLE __list_view_field  AUTO_INCREMENT = 1000;
+drop database testbed;
+create database testbed;

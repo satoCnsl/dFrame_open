@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}dFrame{% endblock title %}
+
+{% block content %}
+    <h3>
+        <p align = "center">    
+          {{fieldCaption['View Name']}}：
+          {{form.viewName}}
+        </p>
+    </h3>
+
+  <div >
+  <center>
+    <table class="table table-striped table-bordered" width="60%">
+        <thead>
+          <tr>
+            <th > {{fieldCaption['Field Name']}} </th>
+            <th > {{fieldCaption['Operator']}} </th> </th>
+            <th > {{fieldCaption['Value']}}
+           </tr>
+        </thead>
+        
+        <tbody > 
+          {% for  field in form %}
+                {% if '_objectFieldID' in field.name and field.name != 'sf_999_objectFieldID' %}
+                  <tr> <td>{{field}}</td>
+                {% elif '_fieldOperator' in field.name %}
+                  <td>{{field}}</td>
+                {% elif 'value' in field.name %}
+                  <td>{{field}}</td>  </tr>
+                {% elif '_andOr' in field.name%}
+                  <tr align='center'><td>{{field}}</td></tr>
+                {% endif %}
+          {% endfor %}
+        </tbody>
+        
+    </table>  
+  </center>
+  </div >
+
+  <div >
+    <center>
+      
+      <br>
+      <p> 一覧表示するときに表示する項目を選択してください</p>
+        {% for field in form %}
+          {% if field.name == 'sf_999_fieldSel' %}
+          {{ field }} 
+          {% endif %} 
+        {% endfor %}
+      
+    </center>
+   </div>
+{% endblock content %}

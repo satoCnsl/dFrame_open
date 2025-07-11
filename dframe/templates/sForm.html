@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %} dFrame {% endblock title %}
+
+{% block content %}
+    <style>
+        .campus{
+            width:    {{campusWidth}};
+            height:   {{campusHeight}};
+            border:   1px solid;
+            overflow: scroll;
+            
+            body {margin: 4;padding: 0; line-height: 10px;}
+        }
+    </style>
+    <h4 class="mt-4 border-bottom">
+        【 {{formPrpty[0]['title']}} {{formPrpty[0]['childObjName']}} 】 
+        <!-- child objects link -->
+        {% for i in range(dd_link|length) %}
+            {% if dd_link[i]['childObjID'] > 0 and entity_id > 0 %}
+                &emsp;
+                <a href= "/dframe/navi/form/{{dd_link[i]['childObjID']}}/0/{{entity_id}}/{{runningMode[2]}}/{{dd_link[i]['viewID']}}/0/ " > 
+                    {{dd_link[i]['childObjTitle']}}
+                </a>
+            {% elif dd_link[i]['reportID'] > 0 and entity_id > 0  %}
+                &emsp;
+                <a href= "/dframe/print/{{dd_link[i]['reportID']}}/{{entity_id}}/{{dd_link[i]['scope']}}/ " > 
+                    {{dd_link[i]['caption']}}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+    </h4>
+        {% if form_msg != None %}
+            <div id="err_msg" style="background-color: yellow;">
+                {{form_msg}}
+            </div>
+        {% endif %}
+        
+    <!-- <form method="POST" > -->
+    <table id="field" width="100%">
+        <colgroup>
+            {% if formPrpty[0]['numOfColms'] == 1 %}
+                <col style="width: 15%;">
+                <col style="width: 85%;">
+            {% else %}
+                <col style="width: 15%;">
+                <col style="width: 35%;">
+                <col style="width: 15%;">
+                <col style="width: 35%;">
+            {% endif %}
+        </colgroup>
+        {% for field in form %}
+            {% if field.name not in ('sForm00000', 'csrf_token', 'id') %}
+                {% if field.description[0] in (0,2) %}
+                    <tr >
+                {% endif  %}
+                    <td width="15%" height="20px">
+                        {% if field.description[1] != None %}
+                            <div class="target" data-text={{field.description[1]}}>                                
+                                {{field.label}}
+                                {% if field.flags.required %}
+                                    *
+                                {% endif %}
+                            </div>
+                        {% else %}                    
+                            {{field.label}}
+                            {% if field.flags.required %}
+                                *
+                            {% endif %}
+                        {% endif %} 
+                        
+                    </td>
+                {% if field.description[0]==2 or formPrpty[0]['numOfColms'] == 1 %}
+                    <td colspan="3"; width="85%" height="20px">
+                {% else %}
+                    <td width ="35%" height="20px">
+                {% endif %}
+                <p >
+                    
+                {% if field.name == 'sf_0_photoImg' %}
+                    {% if field.data[-1] != '' %}
+                        <img src="{{url_for('static', filename= field.data )}}" /> 
+                    {% else %}
+                        <embed src="{{url_for('static', filename= 'Ibaraking.pdf')}}"
+                        type="application/pdf"
+                        frameBorder="0"
+                        scrolling="auto"
+                        height="100%"
+                        width="100%"
+                        ></embed>
+                    {% endif %}
+                        
+                {% else %}
+                    {{ field}}
+                {% endif %}
+                    
+                </p>
+                {% if field.description[0] in (1,2) %}
+                    </tr>     
+                {% endif %}  
+            {% endif %}
+            
+        {% endfor %} 
+                        
+    </table>    
+    <div id="text" style="background-color: yellow;display: none;"></div>
+
+    <!-- </form> -->
+</div>
+
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}dFrame{% endblock title %}
+
+{% block content %}
+
+  <h4 class="mt-4 border-bottom">
+     【 {{formCaptionL1[0]}} {{formPrpty[0]['title']}} {{formPrpty[0]['childObjName']}} 】
+    
+     <p>          
+        {% for  field in form %}
+          <tr>
+              {% if field.name != 'csrf_token' and field.label != 'CSRF Token' and  'bf_' in field.name %}
+                <td > {{field.label}} {{field}} </td>
+              {% endif %}
+          </tr>
+        {% endfor %}
+        　
+        <button type="submit" formaction="/dframe/navi/form/{{formPrpty[0]['id']}}/0/0/0/100000/0/">
+          Go!
+        </button>
+        
+      </p>
+  </h4>
+  <table id="main" border="1"  width="100%">
+    <tr style="vertical-align:top"><td>
+    <table id ="list"   > 
+        {% for  i in range(offset_list|length) %}
+        <tr>
+            <th scope="row" height="20">
+                <a href= "/{{urlPath}}?offset= {{offset_list[i]['offset_value'] }}">                 
+              {{offset_list[i]['title']}}
+            </th> 
+        <</tr>
+        {% endfor%}
+    </table></td>
+  <!-- <form method="POST" > -->
+    <td>
+    <table id="field" >
+        <colgroup>
+                <col style="width: 10%;">
+                <col style="width: 30%;">
+                <col style="width: 10%;">
+                <col style="width: 30%;">
+        </colgroup>
+        {% for field in form.rows[0] %}
+            {% if field.name not in ('sForm00000', 'csrf_token') and  'sf_' in field.name %} 
+                {% if field.description[0] in (0,2) %}
+                    <tr >
+                {% endif  %}
+                    <td width="15%" height="20px">
+                        {{field.label}}{% if field.flags.required %}*{% endif %}
+                    </td>
+                {% if field.description[0]==2 or formPrpty[0]['numOfColms'] == 1 %}
+                    <td colspan="3"; width="65%" height="20px">
+                {% else %}
+                    <td width ="25%" height="20px">
+                {% endif %}
+                <p >
+                    
+                    {{ field.data}}
+                    
+                    {% if field.description[1] != None %}
+                        <img src="../image/help.png" width="20" height="20" alt"Help" onmouseover= "this.src" ={field.description[1]} >
+                    {% endif %}
+                                            
+                </p>
+                {% if field.description[0] in (1,2) %}
+                    </tr>     
+                {% endif %}  
+            {% endif %}
+        {% endfor %} 
+    </table></td>
+</tr>
+ </table>
+{% endblock content %}
+

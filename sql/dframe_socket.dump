@@ -1,0 +1,1447 @@
+-- MySQL dump 10.13  Distrib 9.1.0, for Win64 (x86_64)
+--
+-- Host: localhost    Database: dframe_socket
+-- ------------------------------------------------------
+-- Server version	9.1.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES cp932 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Temporary view structure for view `__app_object_v`
+--
+
+DROP TABLE IF EXISTS `__app_object_v`;
+/*!50001 DROP VIEW IF EXISTS `__app_object_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__app_object_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `name`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__formcolms_v`
+--
+
+DROP TABLE IF EXISTS `__formcolms_v`;
+/*!50001 DROP VIEW IF EXISTS `__formcolms_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__formcolms_v` AS SELECT 
+ 1 AS `objectID`,
+ 1 AS `accountID`,
+ 1 AS `id`,
+ 1 AS `position`,
+ 1 AS `name`,
+ 1 AS `title`,
+ 1 AS `dataType`,
+ 1 AS `defaultExpression`,
+ 1 AS `numOfLines`,
+ 1 AS `baseTable`,
+ 1 AS `slctStyle`,
+ 1 AS `cmbKeyFldNm`,
+ 1 AS `cmbStrainObjNm`,
+ 1 AS `derivedTerm`,
+ 1 AS `foreignObjectID`,
+ 1 AS `foreignKeyFldNm`,
+ 1 AS `width`,
+ 1 AS `height`,
+ 1 AS `isMasterObject`,
+ 1 AS `isBulkSearchField`,
+ 1 AS `isMultiSelect`,
+ 1 AS `isVisible`,
+ 1 AS `isReadOnly`,
+ 1 AS `isNotNull`,
+ 1 AS `description`,
+ 1 AS `defaultViewID`,
+ 1 AS `seq`,
+ 1 AS `numOfColms`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__formdata_v`
+--
+
+DROP TABLE IF EXISTS `__formdata_v`;
+/*!50001 DROP VIEW IF EXISTS `__formdata_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__formdata_v` AS SELECT 
+ 1 AS `objectID`,
+ 1 AS `name`,
+ 1 AS `title`,
+ 1 AS `dataType`,
+ 1 AS `defaultExpression`,
+ 1 AS `steppedTerm`,
+ 1 AS `derivedTerm`,
+ 1 AS `cmbStrainObjNm`,
+ 1 AS `cmbKeyFldNm`,
+ 1 AS `foreignObjectNm`,
+ 1 AS `isMultiSelect`,
+ 1 AS `foreignObjAlias`,
+ 1 AS `foreignKeyFldNm`,
+ 1 AS `isMasterObject`,
+ 1 AS `from`,
+ 1 AS `dbName`,
+ 1 AS `bulkSearch`,
+ 1 AS `dataLength`,
+ 1 AS `defaultViewID`,
+ 1 AS `seq`,
+ 1 AS `seq_order_by`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__formlinkage_v`
+--
+
+DROP TABLE IF EXISTS `__formlinkage_v`;
+/*!50001 DROP VIEW IF EXISTS `__formlinkage_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__formlinkage_v` AS SELECT 
+ 1 AS `objectID`,
+ 1 AS `reportID`,
+ 1 AS `RecordTypeID`,
+ 1 AS `objName`,
+ 1 AS `caption`,
+ 1 AS `scope`,
+ 1 AS `childObjID`,
+ 1 AS `childObjNm`,
+ 1 AS `childObjTitle`,
+ 1 AS `seq`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__formprpty_v`
+--
+
+DROP TABLE IF EXISTS `__formprpty_v`;
+/*!50001 DROP VIEW IF EXISTS `__formprpty_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__formprpty_v` AS SELECT 
+ 1 AS `accountID`,
+ 1 AS `id`,
+ 1 AS `appNm`,
+ 1 AS `numOfColms`,
+ 1 AS `maxLinesInPage`,
+ 1 AS `name`,
+ 1 AS `runningType`,
+ 1 AS `title`,
+ 1 AS `isAccessible`,
+ 1 AS `masterObjectID`,
+ 1 AS `triggerNm`,
+ 1 AS `bulkSourceObjectID`,
+ 1 AS `descriptions`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__list_view`
+--
+
+DROP TABLE IF EXISTS `__list_view`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__list_view` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` mediumtext,
+  `objectID` int DEFAULT NULL,
+  `isSystemUse` tinyint DEFAULT '0',
+  `uprObjID` int DEFAULT NULL,
+  `strOrderBy` mediumtext,
+  `seq` int DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `objectID_idx` (`objectID`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__list_view`
+--
+
+LOCK TABLES `__list_view` WRITE;
+/*!40000 ALTER TABLE `__list_view` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__list_view` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `__list_view_field`
+--
+
+DROP TABLE IF EXISTS `__list_view_field`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__list_view_field` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `listViewID` int DEFAULT NULL,
+  `objectFieldID` int DEFAULT NULL,
+  `seq` int DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_list_view_ifkd_dx` (`listViewID`),
+  CONSTRAINT `fk_list_view` FOREIGN KEY (`listViewID`) REFERENCES `__list_view` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__list_view_field`
+--
+
+LOCK TABLES `__list_view_field` WRITE;
+/*!40000 ALTER TABLE `__list_view_field` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__list_view_field` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__list_view_field_v`
+--
+
+DROP TABLE IF EXISTS `__list_view_field_v`;
+/*!50001 DROP VIEW IF EXISTS `__list_view_field_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__list_view_field_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `listViewID`,
+ 1 AS `objectFieldID`,
+ 1 AS `seq`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__list_view_filter`
+--
+
+DROP TABLE IF EXISTS `__list_view_filter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__list_view_filter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `listViewID` int DEFAULT NULL,
+  `objectFieldID` int DEFAULT NULL,
+  `fieldOperator` mediumtext,
+  `value` varchar(45) DEFAULT NULL,
+  `andOr` varchar(45) DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_list_view_filter_idx` (`listViewID`),
+  CONSTRAINT `fk_list_view_filter` FOREIGN KEY (`listViewID`) REFERENCES `__list_view` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__list_view_filter`
+--
+
+LOCK TABLES `__list_view_filter` WRITE;
+/*!40000 ALTER TABLE `__list_view_filter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__list_view_filter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__list_view_filter_v`
+--
+
+DROP TABLE IF EXISTS `__list_view_filter_v`;
+/*!50001 DROP VIEW IF EXISTS `__list_view_filter_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__list_view_filter_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `listViewID`,
+ 1 AS `objectFieldID`,
+ 1 AS `fieldOperator`,
+ 1 AS `value`,
+ 1 AS `andOr`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__list_view_v`
+--
+
+DROP TABLE IF EXISTS `__list_view_v`;
+/*!50001 DROP VIEW IF EXISTS `__list_view_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__list_view_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `name`,
+ 1 AS `objectID`,
+ 1 AS `isSystemUse`,
+ 1 AS `uprObjID`,
+ 1 AS `strOrderBy`,
+ 1 AS `seq`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__object`
+--
+
+DROP TABLE IF EXISTS `__object`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__object` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `dbName` varchar(45) DEFAULT 'dframe',
+  `runningType` int NOT NULL DEFAULT '0',
+  `searchFieldNm` varchar(45) DEFAULT NULL,
+  `masterObjectID` int DEFAULT '0',
+  `bulkSourceObjectID` int DEFAULT '0',
+  `drillDownObjectID_void` int DEFAULT NULL,
+  `drillDownFieldNm_void` varchar(45) DEFAULT NULL,
+  `triggerNm` text,
+  `descriptions` text,
+  `defaultViewID` int DEFAULT NULL,
+  `accessibility` varchar(45) DEFAULT NULL,
+  `seq` int DEFAULT '0',
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  KEY `masterObjID_idx` (`masterObjectID`),
+  KEY `bulkSourceObjID_idx` (`bulkSourceObjectID`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__object`
+--
+
+LOCK TABLES `__object` WRITE;
+/*!40000 ALTER TABLE `__object` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__object` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `__object_field`
+--
+
+DROP TABLE IF EXISTS `__object_field`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__object_field` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `objectID` int DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `dataType` varchar(45) DEFAULT NULL,
+  `dataLength` int DEFAULT '0',
+  `NumOfLines` int DEFAULT '1',
+  `width` varchar(10) DEFAULT NULL,
+  `height` varchar(10) DEFAULT NULL,
+  `slctStyle` mediumtext,
+  `defaultExpression` varchar(256) DEFAULT NULL,
+  `derivedTerm` varchar(200) DEFAULT NULL,
+  `steppedTerm` varchar(200) DEFAULT NULL,
+  `isNotNull` smallint DEFAULT '0',
+  `baseTable` varchar(50) DEFAULT NULL,
+  `cmbStrainObjNm` varchar(45) DEFAULT NULL,
+  `cmbKeyFldNm` varchar(45) DEFAULT NULL,
+  `foreignObjectID` int NOT NULL DEFAULT '0',
+  `foreignKeyFldNm` varchar(45) DEFAULT NULL,
+  `isMultiSelect` tinyint(1) DEFAULT '0',
+  `isMasterObject` tinyint(1) DEFAULT '0',
+  `isBulkSearchField` tinyint(1) DEFAULT '0',
+  `description` text,
+  `accessibility` varchar(45) DEFAULT NULL,
+  `seq` int DEFAULT '0',
+  `seq_order_by` int DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `objID_name_index` (`objectID`,`name`),
+  KEY `fk_obj_fld_object_idx` (`objectID`),
+  KEY `foreignObjectID_idx` (`foreignObjectID`),
+  CONSTRAINT `fk_obj_fld_object` FOREIGN KEY (`objectID`) REFERENCES `__object` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__object_field`
+--
+
+LOCK TABLES `__object_field` WRITE;
+/*!40000 ALTER TABLE `__object_field` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__object_field` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__object_field_role_v`
+--
+
+DROP TABLE IF EXISTS `__object_field_role_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_field_role_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_field_role_v` AS SELECT 
+ 1 AS `fid`,
+ 1 AS `objectID`,
+ 1 AS `fieldNm`,
+ 1 AS `r1`,
+ 1 AS `r2`,
+ 1 AS `r3`,
+ 1 AS `r4`,
+ 1 AS `r5`,
+ 1 AS `r6`,
+ 1 AS `r7`,
+ 1 AS `r8`,
+ 1 AS `CNT`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__object_field_rw`
+--
+
+DROP TABLE IF EXISTS `__object_field_rw`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__object_field_rw` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `objectFieldID` int DEFAULT NULL,
+  `roleID` int DEFAULT NULL,
+  `fieldRwID` int DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `objFeild_roleID_idx` (`objectFieldID`,`roleID`),
+  KEY `fk_obj_rw_object_idx` (`objectFieldID`),
+  CONSTRAINT `fk_obj_rw_object` FOREIGN KEY (`objectFieldID`) REFERENCES `__object_field` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__object_field_rw`
+--
+
+LOCK TABLES `__object_field_rw` WRITE;
+/*!40000 ALTER TABLE `__object_field_rw` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__object_field_rw` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__object_field_rw_list_v`
+--
+
+DROP TABLE IF EXISTS `__object_field_rw_list_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_field_rw_list_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_field_rw_list_v` AS SELECT 
+ 1 AS `searchKey`,
+ 1 AS `objectID`,
+ 1 AS `entityNm`,
+ 1 AS `objectID1`,
+ 1 AS `objectFieldID1`,
+ 1 AS `entityNm1`,
+ 1 AS `id1`,
+ 1 AS `roleID1`,
+ 1 AS `fieldRwID1`,
+ 1 AS `objectID2`,
+ 1 AS `objectFieldID2`,
+ 1 AS `entityNm2`,
+ 1 AS `id2`,
+ 1 AS `roleID2`,
+ 1 AS `fieldRwID2`,
+ 1 AS `objectID3`,
+ 1 AS `objectFieldID3`,
+ 1 AS `entityNm3`,
+ 1 AS `id3`,
+ 1 AS `roleID3`,
+ 1 AS `fieldRwID3`,
+ 1 AS `objectID4`,
+ 1 AS `objectFieldID4`,
+ 1 AS `entityNm4`,
+ 1 AS `id4`,
+ 1 AS `roleID4`,
+ 1 AS `fieldRwID4`,
+ 1 AS `objectID5`,
+ 1 AS `objectFieldID5`,
+ 1 AS `entityNm5`,
+ 1 AS `id5`,
+ 1 AS `roleID5`,
+ 1 AS `fieldRwID5`,
+ 1 AS `objectID6`,
+ 1 AS `objectFieldID6`,
+ 1 AS `entityNm6`,
+ 1 AS `id6`,
+ 1 AS `roleID6`,
+ 1 AS `fieldRwID6`,
+ 1 AS `objectID7`,
+ 1 AS `objectFieldID7`,
+ 1 AS `entityNm7`,
+ 1 AS `id7`,
+ 1 AS `roleID7`,
+ 1 AS `fieldRwID7`,
+ 1 AS `objectID8`,
+ 1 AS `objectFieldID8`,
+ 1 AS `entityNm8`,
+ 1 AS `id8`,
+ 1 AS `roleID8`,
+ 1 AS `fieldRwID8`,
+ 1 AS `CNT`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__object_field_rw_v`
+--
+
+DROP TABLE IF EXISTS `__object_field_rw_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_field_rw_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_field_rw_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `objectFieldID`,
+ 1 AS `roleID`,
+ 1 AS `fieldRwID`,
+ 1 AS `isVisible`,
+ 1 AS `isReadOnly`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__object_field_v`
+--
+
+DROP TABLE IF EXISTS `__object_field_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_field_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_field_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `objectID`,
+ 1 AS `name`,
+ 1 AS `title`,
+ 1 AS `dataType`,
+ 1 AS `dataLength`,
+ 1 AS `NumOfLines`,
+ 1 AS `width`,
+ 1 AS `height`,
+ 1 AS `slctStyle`,
+ 1 AS `defaultExpression`,
+ 1 AS `derivedTerm`,
+ 1 AS `steppedTerm`,
+ 1 AS `isNotNull`,
+ 1 AS `baseTable`,
+ 1 AS `cmbStrainObjNm`,
+ 1 AS `cmbKeyFldNm`,
+ 1 AS `foreignObjectID`,
+ 1 AS `foreignKeyFldNm`,
+ 1 AS `isMultiSelect`,
+ 1 AS `isMasterObject`,
+ 1 AS `isBulkSearchField`,
+ 1 AS `description`,
+ 1 AS `accessibility`,
+ 1 AS `seq`,
+ 1 AS `seq_order_by`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__object_role_v`
+--
+
+DROP TABLE IF EXISTS `__object_role_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_role_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_role_v` AS SELECT 
+ 1 AS `objectID`,
+ 1 AS `entityNm`,
+ 1 AS `r1`,
+ 1 AS `r2`,
+ 1 AS `r3`,
+ 1 AS `r4`,
+ 1 AS `r5`,
+ 1 AS `r6`,
+ 1 AS `r7`,
+ 1 AS `r8`,
+ 1 AS `CNT`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__object_security`
+--
+
+DROP TABLE IF EXISTS `__object_security`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__object_security` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `objectID` int NOT NULL,
+  `roleID` int NOT NULL,
+  `isAccessible` tinyint(1) DEFAULT '0',
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `fk_obj_role` (`objectID`,`roleID`),
+  KEY `fk_obj_security_object_idx` (`objectID`) /*!80000 INVISIBLE */,
+  CONSTRAINT `fk_obj_security_object` FOREIGN KEY (`objectID`) REFERENCES `__object` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__object_security`
+--
+
+LOCK TABLES `__object_security` WRITE;
+/*!40000 ALTER TABLE `__object_security` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__object_security` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__object_security_list_v`
+--
+
+DROP TABLE IF EXISTS `__object_security_list_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_security_list_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_security_list_v` AS SELECT 
+ 1 AS `searchKey`,
+ 1 AS `objectID`,
+ 1 AS `entityNm`,
+ 1 AS `objectID1`,
+ 1 AS `entityNm1`,
+ 1 AS `id1`,
+ 1 AS `roleID1`,
+ 1 AS `isAccessible1`,
+ 1 AS `objectID2`,
+ 1 AS `entityNm2`,
+ 1 AS `id2`,
+ 1 AS `roleID2`,
+ 1 AS `isAccessible2`,
+ 1 AS `objectID3`,
+ 1 AS `entityNm3`,
+ 1 AS `id3`,
+ 1 AS `roleID3`,
+ 1 AS `isAccessible3`,
+ 1 AS `objectID4`,
+ 1 AS `entityNm4`,
+ 1 AS `id4`,
+ 1 AS `roleID4`,
+ 1 AS `isAccessible4`,
+ 1 AS `objectID5`,
+ 1 AS `entityNm5`,
+ 1 AS `id5`,
+ 1 AS `roleID5`,
+ 1 AS `isAccessible5`,
+ 1 AS `entityNm6`,
+ 1 AS `objectID6`,
+ 1 AS `id6`,
+ 1 AS `roleID6`,
+ 1 AS `isAccessible6`,
+ 1 AS `objectID7`,
+ 1 AS `entityNm7`,
+ 1 AS `id7`,
+ 1 AS `roleID7`,
+ 1 AS `isAccessible7`,
+ 1 AS `objectID8`,
+ 1 AS `entityNm8`,
+ 1 AS `id8`,
+ 1 AS `roleID8`,
+ 1 AS `isAccessible8`,
+ 1 AS `CNT`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__object_security_v`
+--
+
+DROP TABLE IF EXISTS `__object_security_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_security_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_security_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `objectID`,
+ 1 AS `roleID`,
+ 1 AS `isAccessible`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__object_v`
+--
+
+DROP TABLE IF EXISTS `__object_v`;
+/*!50001 DROP VIEW IF EXISTS `__object_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__object_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `name`,
+ 1 AS `title`,
+ 1 AS `dbName`,
+ 1 AS `runningType`,
+ 1 AS `searchFieldNm`,
+ 1 AS `masterObjectID`,
+ 1 AS `bulkSourceObjectID`,
+ 1 AS `drillDownObjectID_void`,
+ 1 AS `drillDownFieldNm_void`,
+ 1 AS `triggerNm`,
+ 1 AS `descriptions`,
+ 1 AS `accessibility`,
+ 1 AS `defaultViewID`,
+ 1 AS `seq`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__report`
+--
+
+DROP TABLE IF EXISTS `__report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__report` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` tinytext NOT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `objectID` int NOT NULL DEFAULT '0',
+  `recordTypeID` int DEFAULT '0',
+  `pageSize` char(2) NOT NULL DEFAULT '0',
+  `orientation` char(10) NOT NULL DEFAULT '0',
+  `foreignKeyFieldID` int DEFAULT '0',
+  `scopeRelFieldID` int DEFAULT '0',
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__report`
+--
+
+LOCK TABLES `__report` WRITE;
+/*!40000 ALTER TABLE `__report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__report` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `__report_schema`
+--
+
+DROP TABLE IF EXISTS `__report_schema`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__report_schema` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `reportID` int DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `align` varchar(45) DEFAULT NULL,
+  `v_align` varchar(45) DEFAULT NULL,
+  `border` decimal(1,0) DEFAULT NULL,
+  `width_1stCol` decimal(4,1) NOT NULL DEFAULT '0.0',
+  `width_2ndCol` decimal(4,1) DEFAULT '0.0',
+  `width_midCol` decimal(4,1) DEFAULT '0.0',
+  `width_1stTailCol` decimal(4,1) DEFAULT '0.0',
+  `width_2ndTailCol` decimal(4,1) DEFAULT '0.0',
+  `height` decimal(3,0) DEFAULT NULL,
+  `fontSize` decimal(3,0) DEFAULT NULL,
+  `sourceData` text,
+  `numOfCols` int DEFAULT NULL,
+  `numOfRows` int DEFAULT NULL,
+  `isHeaderReq` tinyint DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `report_idx` (`reportID`),
+  CONSTRAINT `report` FOREIGN KEY (`reportID`) REFERENCES `__report` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__report_schema`
+--
+
+LOCK TABLES `__report_schema` WRITE;
+/*!40000 ALTER TABLE `__report_schema` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__report_schema` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__report_schema_v`
+--
+
+DROP TABLE IF EXISTS `__report_schema_v`;
+/*!50001 DROP VIEW IF EXISTS `__report_schema_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__report_schema_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `reportID`,
+ 1 AS `type`,
+ 1 AS `align`,
+ 1 AS `v_align`,
+ 1 AS `border`,
+ 1 AS `width_1stCol`,
+ 1 AS `width_2ndCol`,
+ 1 AS `width_midCol`,
+ 1 AS `width_1stTailCol`,
+ 1 AS `width_2ndTailCol`,
+ 1 AS `height`,
+ 1 AS `fontSize`,
+ 1 AS `sourceData`,
+ 1 AS `numOfCols`,
+ 1 AS `numOfRows`,
+ 1 AS `isHeaderReq`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__report_scope`
+--
+
+DROP TABLE IF EXISTS `__report_scope`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__report_scope` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `reportID` int NOT NULL,
+  `caption` varchar(45) NOT NULL,
+  `scope` varchar(45) DEFAULT NULL,
+  `seq` int DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `report_idx` (`reportID`),
+  CONSTRAINT `report_scop` FOREIGN KEY (`reportID`) REFERENCES `__report` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__report_scope`
+--
+
+LOCK TABLES `__report_scope` WRITE;
+/*!40000 ALTER TABLE `__report_scope` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__report_scope` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__report_scope_v`
+--
+
+DROP TABLE IF EXISTS `__report_scope_v`;
+/*!50001 DROP VIEW IF EXISTS `__report_scope_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__report_scope_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `reportID`,
+ 1 AS `caption`,
+ 1 AS `scope`,
+ 1 AS `seq`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__report_v`
+--
+
+DROP TABLE IF EXISTS `__report_v`;
+/*!50001 DROP VIEW IF EXISTS `__report_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__report_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `name`,
+ 1 AS `title`,
+ 1 AS `objectID`,
+ 1 AS `recordTypeID`,
+ 1 AS `pageSize`,
+ 1 AS `orientation`,
+ 1 AS `foreignKeyFieldID`,
+ 1 AS `scopeRelFieldID`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `__systemini`
+--
+
+DROP TABLE IF EXISTS `__systemini`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__systemini` (
+  `id` int DEFAULT NULL,
+  `baseUrl` varchar(250) NOT NULL,
+  `appNm` varchar(45) DEFAULT NULL,
+  `portalViewID` int NOT NULL,
+  `numOfColms` int DEFAULT NULL,
+  `maxLinesInPage` int NOT NULL DEFAULT '20',
+  `language` tinytext,
+  `modifiedBy` int NOT NULL,
+  `modifiedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `__systeminicol` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`baseUrl`,`maxLinesInPage`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__systemini`
+--
+
+LOCK TABLES `__systemini` WRITE;
+/*!40000 ALTER TABLE `__systemini` DISABLE KEYS */;
+INSERT INTO `__systemini` VALUES (1,'http://127.0.0.1:5000/','socket',0,0,10,'eng',1,'2025-06-27 13:12:25','2024-11-01 10:13:35',NULL);
+/*!40000 ALTER TABLE `__systemini` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `__trigger`
+--
+
+DROP TABLE IF EXISTS `__trigger`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__trigger` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `objectID` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `sqls` varchar(1000) DEFAULT NULL,
+  `modifiedBy` int DEFAULT NULL,
+  `modifiedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__trigger`
+--
+
+LOCK TABLES `__trigger` WRITE;
+/*!40000 ALTER TABLE `__trigger` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__trigger` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `__trigger_v`
+--
+
+DROP TABLE IF EXISTS `__trigger_v`;
+/*!50001 DROP VIEW IF EXISTS `__trigger_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__trigger_v` AS SELECT 
+ 1 AS `id`,
+ 1 AS `objectID`,
+ 1 AS `name`,
+ 1 AS `type`,
+ 1 AS `sqls`,
+ 1 AS `modifiedBy`,
+ 1 AS `modifiedAt`,
+ 1 AS `createdAt`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `__viewdata_v`
+--
+
+DROP TABLE IF EXISTS `__viewdata_v`;
+/*!50001 DROP VIEW IF EXISTS `__viewdata_v`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `__viewdata_v` AS SELECT 
+ 1 AS `viewID`,
+ 1 AS `fObjNm`,
+ 1 AS `fieldOperator`,
+ 1 AS `value`,
+ 1 AS `andOr`,
+ 1 AS `name`,
+ 1 AS `dataType`,
+ 1 AS `derivedTerm`,
+ 1 AS `id`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping routines for database 'dframe_socket'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `getMasterAdata` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getMasterAdata`( _dummy int,  _viewID text)
+BEGIN
+    SELECT 
+        id		AS `fld1`,
+	name 		AS `fld2`,
+	sex 		AS `fld3`,
+        birthday 	AS `fld4`
+    FROM mastera;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getMasterAhdr` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getMasterAhdr`( _dummy int,  _viewID text)
+BEGIN
+    SELECT 
+        'id'AS `fld1`,
+		'name' AS `fld2`,
+		'sex' AS `fld3`,
+        'birthday' AS `fld4`;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Final view structure for view `__app_object_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__app_object_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__app_object_v` AS select `__object`.`id` AS `id`,`__object`.`title` AS `name` from `__object` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__formcolms_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__formcolms_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__formcolms_v` AS select distinct `obf`.`objectID` AS `objectID`,`obf`.`accountID` AS `accountID`,`obf`.`id` AS `id`,0 AS `position`,`obf`.`name` AS `name`,ifnull(`dic`.`toString`,`obf`.`title`) AS `title`,`obf`.`dataType` AS `dataType`,`obf`.`defaultExpression` AS `defaultExpression`,(case when (`obf`.`NumOfLines` > 1) then `obf`.`NumOfLines` else 1 end) AS `numOfLines`,`obf`.`baseTable` AS `baseTable`,`obf`.`slctStyle` AS `slctStyle`,ifnull(`obf`.`cmbKeyFldNm`,'') AS `cmbKeyFldNm`,ifnull(`obf`.`cmbStrainObjNm`,'') AS `cmbStrainObjNm`,ifnull(`obf`.`derivedTerm`,'') AS `derivedTerm`,ifnull(`obf`.`foreignObjectID`,0) AS `foreignObjectID`,ifnull(`obf`.`foreignKeyFldNm`,'') AS `foreignKeyFldNm`,ifnull(`obf`.`width`,'') AS `width`,ifnull(`obf`.`height`,'') AS `height`,`obf`.`isMasterObject` AS `isMasterObject`,`obf`.`isBulkSearchField` AS `isBulkSearchField`,`obf`.`isMultiSelect` AS `isMultiSelect`,(case when (`obf`.`name` in ('id','modifiedBy','modifiedAt','createdAt')) then 1 when (`rw`.`fieldRwID` is null) then 0 when (`rw`.`fieldRwID` in (0,3)) then 0 else 1 end) AS `isVisible`,(case when (`obf`.`name` in ('id','modifiedBy','modifiedAt','createdAt')) then 1 when (`rw`.`fieldRwID` is null) then 1 when (`rw`.`fieldRwID` in (2,3)) then 0 else 1 end) AS `isReadOnly`,`obf`.`isNotNull` AS `isNotNull`,`obf`.`description` AS `description`,`obf`.`defaultViewID` AS `defaultViewID`,`obf`.`seq` AS `seq`,`dic`.`numOfColms` AS `numOfColms` from (((select `a`.`id` AS `accountID`,`r`.`id` AS `roleID`,`o`.`defaultViewID` AS `defaultViewID`,`f`.`id` AS `id`,`f`.`objectID` AS `objectID`,`f`.`name` AS `name`,`f`.`title` AS `title`,`f`.`dataType` AS `dataType`,`f`.`dataLength` AS `dataLength`,`f`.`NumOfLines` AS `NumOfLines`,`f`.`width` AS `width`,`f`.`height` AS `height`,`f`.`slctStyle` AS `slctStyle`,`f`.`defaultExpression` AS `defaultExpression`,`f`.`derivedTerm` AS `derivedTerm`,`f`.`steppedTerm` AS `steppedTerm`,`f`.`isNotNull` AS `isNotNull`,`f`.`baseTable` AS `baseTable`,`f`.`cmbStrainObjNm` AS `cmbStrainObjNm`,`f`.`cmbKeyFldNm` AS `cmbKeyFldNm`,`f`.`foreignObjectID` AS `foreignObjectID`,`f`.`foreignKeyFldNm` AS `foreignKeyFldNm`,`f`.`isMultiSelect` AS `isMultiSelect`,`f`.`isMasterObject` AS `isMasterObject`,`f`.`isBulkSearchField` AS `isBulkSearchField`,`f`.`description` AS `description`,`f`.`accessibility` AS `accessibility`,`f`.`seq` AS `seq`,`f`.`seq_order_by` AS `seq_order_by`,`f`.`modifiedBy` AS `modifiedBy`,`f`.`modifiedAt` AS `modifiedAt`,`f`.`createdAt` AS `createdAt` from ((`dframe`.`__account` `a` join `dframe`.`__role` `r` on((`a`.`roleID` = `r`.`id`))) join (`__object_field_v` `f` join `__object_v` `o` on((`f`.`objectID` = `o`.`id`))))) `obf` left join `__object_field_rw_v` `rw` on(((`obf`.`id` = `rw`.`objectFieldID`) and (`rw`.`roleID` = `obf`.`roleID`)))) left join (select `cd`.`toString` AS `toString`,`cd`.`ordinaryWord` AS `ordinaryWord`,`si`.`numOfColms` AS `numOfColms` from (`dframe`.`__caption_dic` `cd` join `__systemini` `si` on((`si`.`language` = `cd`.`language`)))) `dic` on((`obf`.`title` = `dic`.`ordinaryWord`))) order by `obf`.`seq` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__formdata_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__formdata_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__formdata_v` AS select distinct `o`.`id` AS `objectID`,`f`.`name` AS `name`,ifnull(`dic`.`toString`,`f`.`title`) AS `title`,`f`.`dataType` AS `dataType`,`f`.`defaultExpression` AS `defaultExpression`,`f`.`steppedTerm` AS `steppedTerm`,(case when (`f`.`cmbStrainObjNm` > '') then ifnull(`f`.`derivedTerm`,'title') else `f`.`derivedTerm` end) AS `derivedTerm`,`f`.`cmbStrainObjNm` AS `cmbStrainObjNm`,(case when (`f`.`cmbStrainObjNm` > '') then ifnull(`f`.`cmbKeyFldNm`,'value') else `f`.`cmbKeyFldNm` end) AS `cmbKeyFldNm`,concat((case when (`orel`.`dbName` = 'socket') then concat('dframe_',`sys`.`appNm`,'.',`orel`.`name`,'_v') when (`orel`.`dbName` = 'socketObject') then concat('dframe_',`sys`.`appNm`,'.',`orel`.`name`) else concat(`orel`.`dbName`,'.',`orel`.`name`) end)) AS `foreignObjectNm`,`f`.`isMultiSelect` AS `isMultiSelect`,(case when (`orel`.`name` is not null) then concat(`orel`.`name`,'_',`f`.`name`) else '' end) AS `foreignObjAlias`,ifnull(`f`.`foreignKeyFldNm`,'') AS `foreignKeyFldNm`,ifnull(`f`.`isMasterObject`,0) AS `isMasterObject`,(case when (`o`.`dbName` = 'socket') then concat('dframe_',`sys`.`appNm`,'.',`o`.`name`,'_v') when (`o`.`dbName` = 'socketObject') then concat('dframe_',`sys`.`appNm`,'.',`o`.`name`) else concat(`o`.`dbName`,'.',`o`.`name`) end) AS `from`,`o`.`dbName` AS `dbName`,`f`.`isBulkSearchField` AS `bulkSearch`,`f`.`dataLength` AS `dataLength`,ifnull(`o`.`defaultViewID`,0) AS `defaultViewID`,`f`.`seq` AS `seq`,`f`.`seq_order_by` AS `seq_order_by` from ((((`__object_field_v` `f` join `__object_v` `o` on((`o`.`id` = `f`.`objectID`))) left join (select distinct `cd`.`toString` AS `toString`,`cd`.`ordinaryWord` AS `ordinaryWord` from (`dframe`.`__caption_dic` `cd` join `__systemini` `si` on((`si`.`language` = `cd`.`language`)))) `dic` on((`f`.`title` = `dic`.`ordinaryWord`))) left join `__object_v` `orel` on(((`orel`.`id` = `f`.`foreignObjectID`) and (`f`.`foreignObjectID` > 0)))) join `__systemini` `sys`) where (`sys`.`id` = 1) order by `f`.`seq` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__formlinkage_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__formlinkage_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__formlinkage_v` AS select distinct `o`.`id` AS `objectID`,ifnull(`rep`.`reportID`,0) AS `reportID`,ifnull(`rep`.`RecordTypeID`,0) AS `RecordTypeID`,`o`.`name` AS `objName`,`rep`.`caption` AS `caption`,`rep`.`scope` AS `scope`,ifnull(`c`.`id`,0) AS `childObjID`,`c`.`name` AS `childObjNm`,ifnull(`dic`.`toString`,`c`.`title`) AS `childObjTitle`,ifnull(`rep`.`seq`,`c`.`id`) AS `seq` from (((`__object_v` `o` left join `__object_v` `c` on(((`c`.`masterObjectID` = `o`.`id`) and (`c`.`bulkSourceObjectID` = 0)))) left join (select `r`.`id` AS `reportID`,`r`.`objectID` AS `objectID`,ifnull(`s`.`caption`,`r`.`title`) AS `caption`,`s`.`scope` AS `scope`,ifnull(`s`.`seq`,`r`.`id`) AS `seq`,`r`.`recordTypeID` AS `RecordTypeID` from (`__report_v` `r` join `__report_scope` `s` on(((`r`.`id` = `s`.`reportID`) and ((`r`.`recordTypeID` <> 0) or (`r`.`recordTypeID` = 0)))))) `rep` on((`rep`.`objectID` = `o`.`id`))) left join (select `cd`.`toString` AS `toString`,`cd`.`ordinaryWord` AS `ordinaryWord` from (`dframe`.`__caption_dic` `cd` join `__systemini` `si` on((`si`.`language` = `cd`.`language`)))) `dic` on((`c`.`title` = `dic`.`ordinaryWord`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__formprpty_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__formprpty_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__formprpty_v` AS select `a`.`id` AS `accountID`,`o`.`id` AS `id`,`s`.`appNm` AS `appNm`,`s`.`numOfColms` AS `numOfColms`,`s`.`maxLinesInPage` AS `maxLinesInPage`,`o`.`name` AS `name`,`o`.`runningType` AS `runningType`,ifnull(`dic`.`toString`,`o`.`title`) AS `title`,`os`.`isAccessible` AS `isAccessible`,`o`.`masterObjectID` AS `masterObjectID`,`o`.`triggerNm` AS `triggerNm`,`o`.`bulkSourceObjectID` AS `bulkSourceObjectID`,`o`.`descriptions` AS `descriptions` from (((((`__object_v` `o` left join `__object_security_v` `os` on((`o`.`id` = `os`.`objectID`))) left join `dframe`.`__role` `r` on((`r`.`id` = `os`.`roleID`))) left join `dframe`.`__account` `a` on((`a`.`roleID` = `r`.`id`))) left join (select `cd`.`toString` AS `toString`,`cd`.`ordinaryWord` AS `ordinaryWord` from (`dframe`.`__caption_dic` `cd` join `__systemini` `si` on((`si`.`language` = `cd`.`language`)))) `dic` on((`o`.`title` = `dic`.`ordinaryWord`))) join `__systemini` `s`) where (`s`.`id` = 1) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__list_view_field_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__list_view_field_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__list_view_field_v` AS select `dframe`.`__list_view_field`.`id` AS `id`,`dframe`.`__list_view_field`.`listViewID` AS `listViewID`,`dframe`.`__list_view_field`.`objectFieldID` AS `objectFieldID`,`dframe`.`__list_view_field`.`seq` AS `seq`,`dframe`.`__list_view_field`.`modifiedBy` AS `modifiedBy`,`dframe`.`__list_view_field`.`modifiedAt` AS `modifiedAt`,`dframe`.`__list_view_field`.`createdAt` AS `createdAt` from `dframe`.`__list_view_field` union select `__list_view_field`.`id` AS `id`,`__list_view_field`.`listViewID` AS `listViewID`,`__list_view_field`.`objectFieldID` AS `objectFieldID`,`__list_view_field`.`seq` AS `seq`,`__list_view_field`.`modifiedBy` AS `modifiedBy`,`__list_view_field`.`modifiedAt` AS `modifiedAt`,`__list_view_field`.`createdAt` AS `createdAt` from `__list_view_field` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__list_view_filter_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__list_view_filter_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__list_view_filter_v` AS select `dframe`.`__list_view_filter`.`id` AS `id`,`dframe`.`__list_view_filter`.`listViewID` AS `listViewID`,`dframe`.`__list_view_filter`.`objectFieldID` AS `objectFieldID`,`dframe`.`__list_view_filter`.`fieldOperator` AS `fieldOperator`,`dframe`.`__list_view_filter`.`value` AS `value`,`dframe`.`__list_view_filter`.`andOr` AS `andOr`,`dframe`.`__list_view_filter`.`modifiedBy` AS `modifiedBy`,`dframe`.`__list_view_filter`.`modifiedAt` AS `modifiedAt`,`dframe`.`__list_view_filter`.`createdAt` AS `createdAt` from `dframe`.`__list_view_filter` union select `__list_view_filter`.`id` AS `id`,`__list_view_filter`.`listViewID` AS `listViewID`,`__list_view_filter`.`objectFieldID` AS `objectFieldID`,`__list_view_filter`.`fieldOperator` AS `fieldOperator`,`__list_view_filter`.`value` AS `value`,`__list_view_filter`.`andOr` AS `andOr`,`__list_view_filter`.`modifiedBy` AS `modifiedBy`,`__list_view_filter`.`modifiedAt` AS `modifiedAt`,`__list_view_filter`.`createdAt` AS `createdAt` from `__list_view_filter` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__list_view_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__list_view_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__list_view_v` AS select `dframe`.`__list_view`.`id` AS `id`,`dframe`.`__list_view`.`name` AS `name`,`dframe`.`__list_view`.`objectID` AS `objectID`,`dframe`.`__list_view`.`isSystemUse` AS `isSystemUse`,`dframe`.`__list_view`.`uprObjID` AS `uprObjID`,`dframe`.`__list_view`.`strOrderBy` AS `strOrderBy`,`dframe`.`__list_view`.`seq` AS `seq`,`dframe`.`__list_view`.`modifiedBy` AS `modifiedBy`,`dframe`.`__list_view`.`modifiedAt` AS `modifiedAt`,`dframe`.`__list_view`.`createdAt` AS `createdAt` from `dframe`.`__list_view` union select `__list_view`.`id` AS `id`,`__list_view`.`name` AS `name`,`__list_view`.`objectID` AS `objectID`,`__list_view`.`isSystemUse` AS `isSystemUse`,`__list_view`.`uprObjID` AS `uprObjID`,`__list_view`.`strOrderBy` AS `strOrderBy`,`__list_view`.`seq` AS `seq`,`__list_view`.`modifiedBy` AS `modifiedBy`,`__list_view`.`modifiedAt` AS `modifiedAt`,`__list_view`.`createdAt` AS `createdAt` from `__list_view` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_field_role_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_field_role_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_field_role_v` AS select `sub2`.`fid` AS `fid`,`sub2`.`objectID` AS `objectID`,`sub2`.`fieldNm` AS `fieldNm`,max(`sub2`.`role1`) AS `r1`,max(`sub2`.`role2`) AS `r2`,max(`sub2`.`role3`) AS `r3`,max(`sub2`.`role4`) AS `r4`,max(`sub2`.`role5`) AS `r5`,max(`sub2`.`role6`) AS `r6`,max(`sub2`.`role7`) AS `r7`,max(`sub2`.`role8`) AS `r8`,`sub2`.`CNT` AS `CNT` from (select `sub`.`fid` AS `fid`,`sub`.`objectID` AS `objectID`,`sub`.`fieldNm` AS `fieldNm`,(case when (`sub`.`roleID` = 1) then `sub`.`roleID` else 0 end) AS `role1`,(case when (`sub`.`roleID` = 2) then `sub`.`roleID` else 0 end) AS `role2`,(case when (`sub`.`roleID` = 3) then `sub`.`roleID` else 0 end) AS `role3`,(case when (`sub`.`roleID` = 4) then `sub`.`roleID` else 0 end) AS `role4`,(case when (`sub`.`roleID` = 5) then `sub`.`roleID` else 0 end) AS `role5`,(case when (`sub`.`roleID` = 6) then `sub`.`roleID` else 0 end) AS `role6`,(case when (`sub`.`roleID` = 7) then `sub`.`roleID` else 0 end) AS `role7`,(case when (`sub`.`roleID` = 8) then `sub`.`roleID` else 0 end) AS `role8`,`subcnt`.`CNT` AS `CNT` from ((select `f`.`id` AS `fid`,`f`.`objectID` AS `objectID`,`f`.`title` AS `fieldNm`,`r`.`id` AS `roleID` from (`__object_field_v` `f` join `dframe`.`__role` `r`) where (`f`.`name` not in ('id','modifiedBy','modifiedAt','createdAt'))) `sub` join (select count(`dframe`.`__role`.`id`) AS `CNT` from `dframe`.`__role`) `subcnt`)) `sub2` group by `sub2`.`fid`,`sub2`.`objectID`,`sub2`.`fieldNm`,`sub2`.`CNT` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_field_rw_list_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_field_rw_list_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_field_rw_list_v` AS select distinct (100000 + `f`.`objectID`) AS `searchKey`,`orv`.`objectID` AS `objectID`,`orv`.`fieldNm` AS `entityNm`,`orv`.`objectID` AS `objectID1`,`orv`.`fid` AS `objectFieldID1`,`orv`.`fieldNm` AS `entityNm1`,ifnull(`s1`.`id`,0) AS `id1`,`orv`.`r1` AS `roleID1`,`s1`.`fieldRwID` AS `fieldRwID1`,`orv`.`objectID` AS `objectID2`,`orv`.`fid` AS `objectFieldID2`,`orv`.`fieldNm` AS `entityNm2`,ifnull(`s2`.`id`,0) AS `id2`,`orv`.`r2` AS `roleID2`,`s2`.`fieldRwID` AS `fieldRwID2`,`orv`.`objectID` AS `objectID3`,`orv`.`fid` AS `objectFieldID3`,`orv`.`fieldNm` AS `entityNm3`,ifnull(`s3`.`id`,0) AS `id3`,`orv`.`r3` AS `roleID3`,`s3`.`fieldRwID` AS `fieldRwID3`,`orv`.`objectID` AS `objectID4`,`orv`.`fid` AS `objectFieldID4`,`orv`.`fieldNm` AS `entityNm4`,ifnull(`s4`.`id`,0) AS `id4`,`orv`.`r4` AS `roleID4`,`s4`.`fieldRwID` AS `fieldRwID4`,`orv`.`objectID` AS `objectID5`,`orv`.`fid` AS `objectFieldID5`,`orv`.`fieldNm` AS `entityNm5`,ifnull(`s5`.`id`,0) AS `id5`,`orv`.`r5` AS `roleID5`,`s5`.`fieldRwID` AS `fieldRwID5`,`orv`.`objectID` AS `objectID6`,`orv`.`fid` AS `objectFieldID6`,`orv`.`fieldNm` AS `entityNm6`,ifnull(`s6`.`id`,0) AS `id6`,`orv`.`r6` AS `roleID6`,`s6`.`fieldRwID` AS `fieldRwID6`,`orv`.`objectID` AS `objectID7`,`orv`.`fid` AS `objectFieldID7`,`orv`.`fieldNm` AS `entityNm7`,ifnull(`s7`.`id`,0) AS `id7`,`orv`.`r7` AS `roleID7`,`s7`.`fieldRwID` AS `fieldRwID7`,`orv`.`objectID` AS `objectID8`,`orv`.`fid` AS `objectFieldID8`,`orv`.`fieldNm` AS `entityNm8`,ifnull(`s8`.`id`,0) AS `id8`,`orv`.`r8` AS `roleID8`,`s8`.`fieldRwID` AS `fieldRwID8`,`orv`.`CNT` AS `CNT` from ((((((((((`__object_field_role_v` `orv` join `__object_field` `f` on((`f`.`id` = `orv`.`fid`))) join `__object` `o` on((`o`.`id` = `f`.`objectID`))) left join `__object_field_rw_v` `s1` on(((`s1`.`objectFieldID` = `orv`.`fid`) and (`s1`.`roleID` = `orv`.`r1`)))) left join `__object_field_rw_v` `s2` on(((`s2`.`objectFieldID` = `orv`.`fid`) and (`s2`.`roleID` = `orv`.`r2`)))) left join `__object_field_rw_v` `s3` on(((`s3`.`objectFieldID` = `orv`.`fid`) and (`s3`.`roleID` = `orv`.`r3`)))) left join `__object_field_rw_v` `s4` on(((`s4`.`objectFieldID` = `orv`.`fid`) and (`s4`.`roleID` = `orv`.`r4`)))) left join `__object_field_rw_v` `s5` on(((`s5`.`objectFieldID` = `orv`.`fid`) and (`s5`.`roleID` = `orv`.`r5`)))) left join `__object_field_rw_v` `s6` on(((`s6`.`objectFieldID` = `orv`.`fid`) and (`s6`.`roleID` = `orv`.`r6`)))) left join `__object_field_rw_v` `s7` on(((`s7`.`objectFieldID` = `orv`.`fid`) and (`s7`.`roleID` = `orv`.`r7`)))) left join `__object_field_rw_v` `s8` on(((`s8`.`objectFieldID` = `orv`.`fid`) and (`s8`.`roleID` = `orv`.`r8`)))) order by `orv`.`objectID` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_field_rw_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_field_rw_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_field_rw_v` AS select `dframe`.`__object_field_rw`.`id` AS `id`,`dframe`.`__object_field_rw`.`objectFieldID` AS `objectFieldID`,`dframe`.`__object_field_rw`.`roleID` AS `roleID`,`dframe`.`__object_field_rw`.`fieldRwID` AS `fieldRwID`,(case when (`dframe`.`__object_field_rw`.`fieldRwID` = 0) then 0 else 1 end) AS `isVisible`,(case when (`dframe`.`__object_field_rw`.`fieldRwID` = 1) then 1 else 0 end) AS `isReadOnly`,`dframe`.`__object_field_rw`.`modifiedBy` AS `modifiedBy`,`dframe`.`__object_field_rw`.`modifiedAt` AS `modifiedAt`,`dframe`.`__object_field_rw`.`createdAt` AS `createdAt` from `dframe`.`__object_field_rw` union select `rw`.`id` AS `id`,`rw`.`objectFieldID` AS `objectFieldID`,`rw`.`roleID` AS `roleID`,`rw`.`fieldRwID` AS `fieldRwID`,(case when (`rw`.`fieldRwID` = 0) then 0 else 1 end) AS `isVisible`,(case when (`rw`.`fieldRwID` = 2) then 0 else 1 end) AS `isReadOnly`,`rw`.`modifiedBy` AS `modifiedBy`,`rw`.`modifiedAt` AS `modifiedAt`,`rw`.`createdAt` AS `createdAt` from (`__object_field_rw` `rw` join `__object_field` `f` on((`f`.`id` = `rw`.`objectFieldID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_field_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_field_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_field_v` AS select `dframe`.`__object_field`.`id` AS `id`,`dframe`.`__object_field`.`objectID` AS `objectID`,`dframe`.`__object_field`.`name` AS `name`,`dframe`.`__object_field`.`title` AS `title`,`dframe`.`__object_field`.`dataType` AS `dataType`,`dframe`.`__object_field`.`dataLength` AS `dataLength`,`dframe`.`__object_field`.`NumOfLines` AS `NumOfLines`,`dframe`.`__object_field`.`width` AS `width`,`dframe`.`__object_field`.`height` AS `height`,`dframe`.`__object_field`.`slctStyle` AS `slctStyle`,`dframe`.`__object_field`.`defaultExpression` AS `defaultExpression`,`dframe`.`__object_field`.`derivedTerm` AS `derivedTerm`,`dframe`.`__object_field`.`steppedTerm` AS `steppedTerm`,`dframe`.`__object_field`.`isNotNull` AS `isNotNull`,`dframe`.`__object_field`.`baseTable` AS `baseTable`,`dframe`.`__object_field`.`cmbStrainObjNm` AS `cmbStrainObjNm`,`dframe`.`__object_field`.`cmbKeyFldNm` AS `cmbKeyFldNm`,`dframe`.`__object_field`.`foreignObjectID` AS `foreignObjectID`,`dframe`.`__object_field`.`foreignKeyFldNm` AS `foreignKeyFldNm`,`dframe`.`__object_field`.`isMultiSelect` AS `isMultiSelect`,`dframe`.`__object_field`.`isMasterObject` AS `isMasterObject`,`dframe`.`__object_field`.`isBulkSearchField` AS `isBulkSearchField`,`dframe`.`__object_field`.`description` AS `description`,`dframe`.`__object_field`.`accessibility` AS `accessibility`,`dframe`.`__object_field`.`seq` AS `seq`,`dframe`.`__object_field`.`seq_order_by` AS `seq_order_by`,`dframe`.`__object_field`.`modifiedBy` AS `modifiedBy`,`dframe`.`__object_field`.`modifiedAt` AS `modifiedAt`,`dframe`.`__object_field`.`createdAt` AS `createdAt` from `dframe`.`__object_field` union select `__object_field`.`id` AS `id`,`__object_field`.`objectID` AS `objectID`,`__object_field`.`name` AS `name`,`__object_field`.`title` AS `title`,`__object_field`.`dataType` AS `dataType`,`__object_field`.`dataLength` AS `dataLength`,`__object_field`.`NumOfLines` AS `NumOfLines`,`__object_field`.`width` AS `width`,`__object_field`.`height` AS `height`,`__object_field`.`slctStyle` AS `slctStyle`,`__object_field`.`defaultExpression` AS `defaultExpression`,`__object_field`.`derivedTerm` AS `derivedTerm`,`__object_field`.`steppedTerm` AS `steppedTerm`,`__object_field`.`isNotNull` AS `isNotNull`,`__object_field`.`baseTable` AS `baseTable`,`__object_field`.`cmbStrainObjNm` AS `cmbStrainObjNm`,`__object_field`.`cmbKeyFldNm` AS `cmbKeyFldNm`,`__object_field`.`foreignObjectID` AS `foreignObjectID`,`__object_field`.`foreignKeyFldNm` AS `foreignKeyFldNm`,`__object_field`.`isMultiSelect` AS `isMultiSelect`,`__object_field`.`isMasterObject` AS `isMasterObject`,`__object_field`.`isBulkSearchField` AS `isBulkSearchField`,`__object_field`.`description` AS `description`,`__object_field`.`accessibility` AS `accessibility`,`__object_field`.`seq` AS `seq`,`__object_field`.`seq_order_by` AS `seq_order_by`,`__object_field`.`modifiedBy` AS `modifiedBy`,`__object_field`.`modifiedAt` AS `modifiedAt`,`__object_field`.`createdAt` AS `createdAt` from `__object_field` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_role_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_role_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_role_v` AS select `sub2`.`objectID` AS `objectID`,`sub2`.`entityNm` AS `entityNm`,max(`sub2`.`role1`) AS `r1`,max(`sub2`.`role2`) AS `r2`,max(`sub2`.`role3`) AS `r3`,max(`sub2`.`role4`) AS `r4`,max(`sub2`.`role5`) AS `r5`,max(`sub2`.`role6`) AS `r6`,max(`sub2`.`role7`) AS `r7`,max(`sub2`.`role8`) AS `r8`,`sub2`.`CNT` AS `CNT` from (select `sub`.`objectID` AS `objectID`,`sub`.`entityNm` AS `entityNm`,`sub`.`seq` AS `seq`,(case when (`sub`.`roleID` = 1) then `sub`.`roleID` else 0 end) AS `role1`,(case when (`sub`.`roleID` = 2) then `sub`.`roleID` else 0 end) AS `role2`,(case when (`sub`.`roleID` = 3) then `sub`.`roleID` else 0 end) AS `role3`,(case when (`sub`.`roleID` = 4) then `sub`.`roleID` else 0 end) AS `role4`,(case when (`sub`.`roleID` = 5) then `sub`.`roleID` else 0 end) AS `role5`,(case when (`sub`.`roleID` = 6) then `sub`.`roleID` else 0 end) AS `role6`,(case when (`sub`.`roleID` = 7) then `sub`.`roleID` else 0 end) AS `role7`,(case when (`sub`.`roleID` = 8) then `sub`.`roleID` else 0 end) AS `role8`,`subcnt`.`CNT` AS `CNT` from ((select `o`.`id` AS `objectID`,`o`.`title` AS `entityNm`,`r`.`id` AS `roleID`,`o`.`seq` AS `seq` from (`__object_v` `o` join `dframe`.`__role` `r`) where (`o`.`runningType` = 0) order by `o`.`runningType`,`o`.`seq`) `sub` join (select count(`dframe`.`__role`.`id`) AS `CNT` from `dframe`.`__role`) `subcnt`)) `sub2` group by `sub2`.`objectID`,`sub2`.`entityNm`,`sub2`.`seq`,`sub2`.`CNT` order by `sub2`.`seq` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_security_list_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_security_list_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_security_list_v` AS select distinct 100000 AS `searchKey`,`orv`.`objectID` AS `objectID`,`orv`.`entityNm` AS `entityNm`,`orv`.`objectID` AS `objectID1`,`orv`.`entityNm` AS `entityNm1`,ifnull(`s1`.`id`,0) AS `id1`,`orv`.`r1` AS `roleID1`,`s1`.`isAccessible` AS `isAccessible1`,`orv`.`objectID` AS `objectID2`,`orv`.`entityNm` AS `entityNm2`,ifnull(`s2`.`id`,0) AS `id2`,`orv`.`r2` AS `roleID2`,`s2`.`isAccessible` AS `isAccessible2`,`orv`.`objectID` AS `objectID3`,`orv`.`entityNm` AS `entityNm3`,ifnull(`s3`.`id`,0) AS `id3`,`orv`.`r3` AS `roleID3`,`s3`.`isAccessible` AS `isAccessible3`,`orv`.`objectID` AS `objectID4`,`orv`.`entityNm` AS `entityNm4`,ifnull(`s4`.`id`,0) AS `id4`,`orv`.`r4` AS `roleID4`,`s4`.`isAccessible` AS `isAccessible4`,`orv`.`objectID` AS `objectID5`,`orv`.`entityNm` AS `entityNm5`,ifnull(`s5`.`id`,0) AS `id5`,`orv`.`r5` AS `roleID5`,`s5`.`isAccessible` AS `isAccessible5`,`orv`.`entityNm` AS `entityNm6`,`orv`.`objectID` AS `objectID6`,ifnull(`s6`.`id`,0) AS `id6`,`orv`.`r6` AS `roleID6`,`s6`.`isAccessible` AS `isAccessible6`,`orv`.`objectID` AS `objectID7`,`orv`.`entityNm` AS `entityNm7`,ifnull(`s7`.`id`,0) AS `id7`,`orv`.`r7` AS `roleID7`,`s7`.`isAccessible` AS `isAccessible7`,`orv`.`objectID` AS `objectID8`,`orv`.`entityNm` AS `entityNm8`,ifnull(`s8`.`id`,0) AS `id8`,`orv`.`r8` AS `roleID8`,`s8`.`isAccessible` AS `isAccessible8`,`orv`.`CNT` AS `CNT` from (((((((((`__object_role_v` `orv` join `__object_v` `o` on((`o`.`id` = `orv`.`objectID`))) left join `__object_security_v` `s1` on(((`s1`.`objectID` = `orv`.`objectID`) and (`s1`.`roleID` = `orv`.`r1`)))) left join `__object_security_v` `s2` on(((`s2`.`objectID` = `orv`.`objectID`) and (`s2`.`roleID` = `orv`.`r2`)))) left join `__object_security_v` `s3` on(((`s3`.`objectID` = `orv`.`objectID`) and (`s3`.`roleID` = `orv`.`r3`)))) left join `__object_security_v` `s4` on(((`s4`.`objectID` = `orv`.`objectID`) and (`s4`.`roleID` = `orv`.`r4`)))) left join `__object_security_v` `s5` on(((`s5`.`objectID` = `orv`.`objectID`) and (`s5`.`roleID` = `orv`.`r5`)))) left join `__object_security_v` `s6` on(((`s6`.`objectID` = `orv`.`objectID`) and (`s6`.`roleID` = `orv`.`r6`)))) left join `__object_security_v` `s7` on(((`s7`.`objectID` = `orv`.`objectID`) and (`s7`.`roleID` = `orv`.`r7`)))) left join `__object_security_v` `s8` on(((`s8`.`objectID` = `orv`.`objectID`) and (`s8`.`roleID` = `orv`.`r8`)))) order by `orv`.`objectID` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_security_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_security_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_security_v` AS select `dframe`.`__object_security`.`id` AS `id`,`dframe`.`__object_security`.`objectID` AS `objectID`,`dframe`.`__object_security`.`roleID` AS `roleID`,`dframe`.`__object_security`.`isAccessible` AS `isAccessible`,`dframe`.`__object_security`.`modifiedBy` AS `modifiedBy`,`dframe`.`__object_security`.`modifiedAt` AS `modifiedAt`,`dframe`.`__object_security`.`createdAt` AS `createdAt` from `dframe`.`__object_security` union select `__object_security`.`id` AS `id`,`__object_security`.`objectID` AS `objectID`,`__object_security`.`roleID` AS `roleID`,`__object_security`.`isAccessible` AS `isAccessible`,`__object_security`.`modifiedBy` AS `modifiedBy`,`__object_security`.`modifiedAt` AS `modifiedAt`,`__object_security`.`createdAt` AS `createdAt` from `__object_security` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__object_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__object_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__object_v` AS select `dframe`.`__object`.`id` AS `id`,`dframe`.`__object`.`name` AS `name`,ifnull(`dic`.`toString`,`dframe`.`__object`.`title`) AS `title`,`dframe`.`__object`.`dbName` AS `dbName`,`dframe`.`__object`.`runningType` AS `runningType`,`dframe`.`__object`.`searchFieldNm` AS `searchFieldNm`,`dframe`.`__object`.`masterObjectID` AS `masterObjectID`,`dframe`.`__object`.`bulkSourceObjectID` AS `bulkSourceObjectID`,`dframe`.`__object`.`drillDownObjectID_void` AS `drillDownObjectID_void`,`dframe`.`__object`.`drillDownFieldNm_void` AS `drillDownFieldNm_void`,`dframe`.`__object`.`triggerNm` AS `triggerNm`,`dframe`.`__object`.`descriptions` AS `descriptions`,`dframe`.`__object`.`accessibility` AS `accessibility`,`dframe`.`__object`.`defaultViewID` AS `defaultViewID`,`dframe`.`__object`.`seq` AS `seq`,`dframe`.`__object`.`modifiedBy` AS `modifiedBy`,`dframe`.`__object`.`modifiedAt` AS `modifiedAt`,`dframe`.`__object`.`createdAt` AS `createdAt` from (`dframe`.`__object` left join (select `cd`.`toString` AS `toString`,`cd`.`ordinaryWord` AS `ordinaryWord` from (`dframe`.`__caption_dic` `cd` join `__systemini` `si` on((`si`.`language` = `cd`.`language`)))) `dic` on((`dframe`.`__object`.`title` = `dic`.`ordinaryWord`))) union select `__object`.`id` AS `id`,`__object`.`name` AS `name`,`__object`.`title` AS `title`,`__object`.`dbName` AS `dbName`,`__object`.`runningType` AS `runningType`,`__object`.`searchFieldNm` AS `searchFieldNm`,`__object`.`masterObjectID` AS `masterObjectID`,`__object`.`bulkSourceObjectID` AS `bulkSourceObjectID`,`__object`.`drillDownObjectID_void` AS `drillDownObjectID_void`,`__object`.`drillDownFieldNm_void` AS `drillDownFieldNm_void`,`__object`.`triggerNm` AS `triggerNm`,`__object`.`descriptions` AS `descriptions`,`__object`.`accessibility` AS `accessibility`,`__object`.`defaultViewID` AS `defaultViewID`,`__object`.`seq` AS `seq`,`__object`.`modifiedBy` AS `modifiedBy`,`__object`.`modifiedAt` AS `modifiedAt`,`__object`.`createdAt` AS `createdAt` from `__object` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__report_schema_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__report_schema_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__report_schema_v` AS select `dframe`.`__report_schema`.`id` AS `id`,`dframe`.`__report_schema`.`reportID` AS `reportID`,`dframe`.`__report_schema`.`type` AS `type`,`dframe`.`__report_schema`.`align` AS `align`,`dframe`.`__report_schema`.`v_align` AS `v_align`,`dframe`.`__report_schema`.`border` AS `border`,`dframe`.`__report_schema`.`width_1stCol` AS `width_1stCol`,`dframe`.`__report_schema`.`width_2ndCol` AS `width_2ndCol`,`dframe`.`__report_schema`.`width_midCol` AS `width_midCol`,`dframe`.`__report_schema`.`width_1stTailCol` AS `width_1stTailCol`,`dframe`.`__report_schema`.`width_2ndTailCol` AS `width_2ndTailCol`,`dframe`.`__report_schema`.`height` AS `height`,`dframe`.`__report_schema`.`fontSize` AS `fontSize`,`dframe`.`__report_schema`.`sourceData` AS `sourceData`,`dframe`.`__report_schema`.`numOfCols` AS `numOfCols`,`dframe`.`__report_schema`.`numOfRows` AS `numOfRows`,`dframe`.`__report_schema`.`isHeaderReq` AS `isHeaderReq`,`dframe`.`__report_schema`.`modifiedBy` AS `modifiedBy`,`dframe`.`__report_schema`.`modifiedAt` AS `modifiedAt`,`dframe`.`__report_schema`.`createdAt` AS `createdAt` from `dframe`.`__report_schema` union select `__report_schema`.`id` AS `id`,`__report_schema`.`reportID` AS `reportID`,`__report_schema`.`type` AS `type`,`__report_schema`.`align` AS `align`,`__report_schema`.`v_align` AS `v_align`,`__report_schema`.`border` AS `border`,`__report_schema`.`width_1stCol` AS `width_1stCol`,`__report_schema`.`width_2ndCol` AS `width_2ndCol`,`__report_schema`.`width_midCol` AS `width_midCol`,`__report_schema`.`width_1stTailCol` AS `width_1stTailCol`,`__report_schema`.`width_2ndTailCol` AS `width_2ndTailCol`,`__report_schema`.`height` AS `height`,`__report_schema`.`fontSize` AS `fontSize`,`__report_schema`.`sourceData` AS `sourceData`,`__report_schema`.`numOfCols` AS `numOfCols`,`__report_schema`.`numOfRows` AS `numOfRows`,`__report_schema`.`isHeaderReq` AS `isHeaderReq`,`__report_schema`.`modifiedBy` AS `modifiedBy`,`__report_schema`.`modifiedAt` AS `modifiedAt`,`__report_schema`.`createdAt` AS `createdAt` from `__report_schema` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__report_scope_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__report_scope_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__report_scope_v` AS select `dframe`.`__report_scope`.`id` AS `id`,`dframe`.`__report_scope`.`reportID` AS `reportID`,`dframe`.`__report_scope`.`caption` AS `caption`,`dframe`.`__report_scope`.`scope` AS `scope`,`dframe`.`__report_scope`.`seq` AS `seq`,`dframe`.`__report_scope`.`modifiedBy` AS `modifiedBy`,`dframe`.`__report_scope`.`modifiedAt` AS `modifiedAt`,`dframe`.`__report_scope`.`createdAt` AS `createdAt` from `dframe`.`__report_scope` union select `__report_scope`.`id` AS `id`,`__report_scope`.`reportID` AS `reportID`,`__report_scope`.`caption` AS `caption`,`__report_scope`.`scope` AS `scope`,`__report_scope`.`seq` AS `seq`,`__report_scope`.`modifiedBy` AS `modifiedBy`,`__report_scope`.`modifiedAt` AS `modifiedAt`,`__report_scope`.`createdAt` AS `createdAt` from `__report_scope` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__report_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__report_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__report_v` AS select `dframe`.`__report`.`id` AS `id`,`dframe`.`__report`.`name` AS `name`,`dframe`.`__report`.`title` AS `title`,`dframe`.`__report`.`objectID` AS `objectID`,`dframe`.`__report`.`recordTypeID` AS `recordTypeID`,`dframe`.`__report`.`pageSize` AS `pageSize`,`dframe`.`__report`.`orientation` AS `orientation`,`dframe`.`__report`.`foreignKeyFieldID` AS `foreignKeyFieldID`,`dframe`.`__report`.`scopeRelFieldID` AS `scopeRelFieldID`,`dframe`.`__report`.`modifiedBy` AS `modifiedBy`,`dframe`.`__report`.`modifiedAt` AS `modifiedAt`,`dframe`.`__report`.`createdAt` AS `createdAt` from `dframe`.`__report` union select `__report`.`id` AS `id`,`__report`.`name` AS `name`,`__report`.`title` AS `title`,`__report`.`objectID` AS `objectID`,`__report`.`recordTypeID` AS `recordTypeID`,`__report`.`pageSize` AS `pageSize`,`__report`.`orientation` AS `orientation`,`__report`.`foreignKeyFieldID` AS `foreignKeyFieldID`,`__report`.`scopeRelFieldID` AS `scopeRelFieldID`,`__report`.`modifiedBy` AS `modifiedBy`,`__report`.`modifiedAt` AS `modifiedAt`,`__report`.`createdAt` AS `createdAt` from `__report` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__trigger_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__trigger_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__trigger_v` AS select `dframe`.`__trigger`.`id` AS `id`,`dframe`.`__trigger`.`objectID` AS `objectID`,`dframe`.`__trigger`.`name` AS `name`,`dframe`.`__trigger`.`type` AS `type`,`dframe`.`__trigger`.`sqls` AS `sqls`,`dframe`.`__trigger`.`modifiedBy` AS `modifiedBy`,`dframe`.`__trigger`.`modifiedAt` AS `modifiedAt`,`dframe`.`__trigger`.`createdAt` AS `createdAt` from `dframe`.`__trigger` union select `__trigger`.`id` AS `id`,`__trigger`.`objectID` AS `objectID`,`__trigger`.`name` AS `name`,`__trigger`.`type` AS `type`,`__trigger`.`sqls` AS `sqls`,`__trigger`.`modifiedBy` AS `modifiedBy`,`__trigger`.`modifiedAt` AS `modifiedAt`,`__trigger`.`createdAt` AS `createdAt` from `__trigger` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `__viewdata_v`
+--
+
+/*!50001 DROP VIEW IF EXISTS `__viewdata_v`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `__viewdata_v` AS select distinct `v`.`id` AS `viewID`,(case when (`o`.`id` in (1,2,3,5,8,9,10,11,14,15)) then concat(`o`.`name`,'_v') when (`o`.`id` = 4) then concat('dframe.',`o`.`name`) else `o`.`name` end) AS `fObjNm`,`vf`.`fieldOperator` AS `fieldOperator`,`vf`.`value` AS `value`,`vf`.`andOr` AS `andOr`,`f`.`name` AS `name`,`f`.`dataType` AS `dataType`,(case when (`do`.`name` > '') then concat(`do`.`name`,'_',`f`.`derivedTerm`,'.',`f`.`derivedTerm`) else `f`.`derivedTerm` end) AS `derivedTerm`,`vf`.`id` AS `id` from ((((`__list_view_v` `v` join `__list_view_filter_v` `vf` on((`v`.`id` = `vf`.`listViewID`))) join `__object_field_v` `f` on((`f`.`id` = `vf`.`objectFieldID`))) join `__object_v` `o` on((`o`.`id` = `v`.`objectID`))) left join `__object_v` `do` on((`do`.`id` = `f`.`foreignObjectID`))) order by `v`.`id`,`vf`.`id` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-06-27 13:17:03

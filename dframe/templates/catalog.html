@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<style>
+    .campus{
+        width:    {{campusWidth}};
+        height:   900px;
+        border:   1px solid;
+        overflow: scroll;
+        
+        body {margin: 4;padding: 0; line-height: 10px;}
+    }
+</style>
+    <embed src="{{url_for('static', filename= formData[0]['pdfName'])}}"
+    type="application/pdf"
+    frameBorder="0"
+    scrolling="no"
+    height="{{formData[0]['height']}}"
+    width="100%"
+   ></embed>
+   {% if formData[0]['pdfName'] == 'Snacks.pdf' %}
+      <table frame="vold" border="1" >
+        <tbody >
+            
+        {% for  i in range(web_product_v|length) %}
+          {% if i%3 == 0 %}
+            <tr style="font-size: 8 px;padding:6px ">
+          {% endif %}
+            <td scope="row" style="padding-left: 10px;padding-right: 8px;">   
+                <img src="{{url_for('static', filename= web_product_v[i]['photoImg'])}}" />  <br> 
+                {{web_product_v[i]['name']}}<br>     
+                Maker:{{web_product_v[i]['make']}} <br>      
+              <p>  Jan:{{web_product_v[i]['jan']}} </p>      
+              <p>  expiry:{{web_product_v[i]['expiry']}} </p>        
+              <p>  Contents:{{web_product_v[i]['contents']}} </p>      
+              <p>  Quantity Per Carton: {{web_product_v[i]['qtyPerCarton']}} </p>           
+              <p>  Ingredients:{{web_product_v[i]['ingredients']}}</p> 
+              <a href= "/dframe/navi/form/253/{{web_product_v[i]['id']}}/0/0/0/0/ " > 
+              <center> Details </center>
+              </a> 
+            </td>
+          {% if i%3 == 2 %}
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}

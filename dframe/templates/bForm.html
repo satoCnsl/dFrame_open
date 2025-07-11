@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}dFrame{% endblock title %}
+
+{% block content %}
+  <h4 class="mt-4 border-bottom">
+     【 {{formCaptionL1[0]}} {{formPrpty[0]['title']}} {{formPrpty[0]['childObjName']}} 】
+    	
+      <p>          
+        {% for  field in form %}
+          <tr>
+              {% if field.name != 'csrf_token' and field.label != 'CSRF Token' and  'bf_' in field.name %}
+                <td>　 </td>
+                <td > {{field.label}} {{field}} </td>
+              {% endif %}
+          </tr>
+        {% endfor %}
+        　
+        {% if form.data|length >3 %}
+          <button type="submit" formaction="/dframe/navi/form/{{formPrpty[0]['id']}}/0/0/0/100000/0/">
+            Go!
+          </button>
+        {% endif %}
+      </p>
+    
+  </h4>
+  <table frame="vold" border="0" >
+    <thead>
+      <tr>
+        {% if (form.rows|length) > 0 %}
+          {% for  i in range( formColumns|length) %}
+            {% if formColumns[i]['isVisible'] and formColumns[i]['name'] != 'id'
+            and formColumns[i]['description'] not in ("tr0","tr1","tr2","tr3","tr") %}
+              <th scope="row" height="20">
+                {{formColumns[i]['title']}}
+              </th> 
+            {% endif %}
+          {% endfor %} 
+        {% endif%}
+      </tr>
+    </thead>
+    <tbody > 
+      {% for  row in form.rows %}
+        <tr>
+          {% for field in row %}
+          {% if field.id != 'id' %}
+            {% if field.description[1] == "rowspan" %}
+              <td rowspan="2">
+            {% elif field.description[1] == "tr" %}
+              </tr><tr><td>
+            {% else %}
+              <td>
+            {% endif %}
+              {{field.data}}</td>
+          {% endif %}
+          {% endfor %}          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock content %}
+

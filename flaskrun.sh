@@ -1,0 +1,1 @@
+#!/bin/bashexport FLASK_APP=dframeexport FLASK_ENV=developmentflask run
