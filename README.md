@@ -61,6 +61,13 @@ dFrameSystem<br>
 　|---flaskrun.sh<br>
 　|---createApp.bat<br>
 　|---createapp.sh<br>
+　|<br>
+　|---sql<br>
+　|　　　|---dframe_inv2_20250701.dump<br>
+　|　　　|---dframe_inv2_20250701.dump<br>
+　|　　　|---dframe_socket.dump<br>
+　|　　　|---nschool_20250701.dump<br>
+　|　　　|---nschool_20250701.dump<br>
 
 ## Run testbed app on Setting mode
    1.cd dFrameSystem(your PaaS Platform)<br>
