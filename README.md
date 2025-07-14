@@ -8,6 +8,9 @@
    flask/Python3<br>
    MySQL<br>
 
+## Source Code
+   Please download from the branch "master"
+
 ## Create dFrame Platform
    1.make the file folder for your PaaS Platform on your system(ex."dFrameSystem")<br>
    2.deploy download file of 'dframe'package to the above folder<br>
@@ -18,8 +21,8 @@
 	testbed:	sample app for training tool for biginners as well as testbed for pytest<br>
 	dframe_testbed:	control information for "testbed" app<br>
    2.down load mysql dump<br>
-	mysql -uroot -pmypass dframe < ../dframe.dump<br>
-        mysql -uroot -pmypass dframe_testbed < ../dframe_socket.dump<br>
+	mysql -uroot -pmypass dframe < ../sql/dframe.dump<br>
+        mysql -uroot -pmypass dframe_testbed < ../sql/dframe_socket.dump<br>
 
 ## Instration:Layout
 dFrameSystem<br>
@@ -43,6 +46,14 @@ dFrameSystem<br>
 　|　　　|　　　|---bForm.html<br>
 　|　　　|　　　|---.....html<br>
 　|　　　|---out_files/<br>
+　|<br>
+　|---sql<br>
+　|　　　|---dframe_inv2_20250701.dump<br>
+　|　　　|---dframe.dump<br>
+　|　　　|---dframe_inv2_20250701.dump<br>
+　|　　　|---dframe_socket.dump<br>
+　|　　　|---nschool_20250701.dump<br>
+　|　　　|---nschool_20250701.dump<br>
 　|<br>
 　|---logfile/<br>
 　|　　　|---logger.log<br>
@@ -93,5 +104,6 @@ dFrameSystem<br>
 ## Sample applications:
    1.Nursly School Document Support System: dframe_nschool_20250701.dump, nschool_20250701.dump(Japanese version)<br>
    2.Inventory Information System: dframe_invt2_20250701.dump, invt2_20250701.dump(English version)<br>
+   Those source code are available to download from the branch "master"
 
 ## If you have any questions or comments, please mail to dframe@u01.itscom.net .
