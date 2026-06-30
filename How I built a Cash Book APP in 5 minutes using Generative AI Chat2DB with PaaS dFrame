@@ -1,6 +1,8 @@
 Introduction
 I created a Cash Book app using only simple prompts, that is, "No Programming Code".
 The following video (2 minutes 40 seconds) shows how it was done.
+<a href="https://youtu.be/0Z7qzh3-ShE" >YouTube dFrame:Generative AI + dFrame(PaaS) make your Business App with no code (Shortened version: 3min) </a><br>
+        <a href="https://youtu.be/DeZ9StKZ6XU" >YouTube dFrame:Front End of Database Generation AI (13min)</a><br>
 This involves sending the three prompts listed in the appendix to Generative AI Chat2DB, and then performing the following operations on the PaaS dFrame.
 Those are:
 ①  To create a link to the Cash Book table that Chat2DB outputs to.
